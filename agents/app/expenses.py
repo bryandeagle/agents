@@ -10,7 +10,7 @@ PLAID_SECRET = os.getenv('PLAID_SECRET')
 ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 
-PERCENTAGE = 40
+PERCENTAGE = 35
 LIST = [{'regex': '^City of Austin T PAYMENT', 'description': 'Electric'},
         {'regex': '^TIAACREF-BACL344 WEB PMTS', 'description': 'Rent'},
         {'regex': '^SPECTRUM', 'description': 'Internet'}]
