@@ -1,7 +1,7 @@
 docker rm -f huginn_agents
 docker build -t deagle/agents:stable .
 
-docker run -it \
+docker run -d \
     --name huginn_agents \
     --network=huginn-net \
     --restart always \
