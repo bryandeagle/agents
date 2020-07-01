@@ -1,6 +1,5 @@
-bs4
-anytree
 flask
 requests
 pytest
 jinja2
+plaid

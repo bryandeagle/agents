@@ -17,3 +17,9 @@ def get_log():
 def test():
     log.info('Request received')
     return 'Success!'
+
+
+@app.route('/expenses')
+def test():
+    log.info('Request received')
+    return 'Success!'
