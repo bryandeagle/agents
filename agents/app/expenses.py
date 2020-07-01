@@ -39,7 +39,8 @@ def get_transactions(client_id, public_key, secret, access_token):
     return results
 
 
-def get_splittables():
+def expenses():
+    """ Get the known splittable expenses """
     transactions = get_transactions(PLAID_CLIENT_ID, PLAID_PUBLIC_KEY, PLAID_SECRET, ACCESS_TOKEN)
     month = datetime.strftime(datetime.today().replace(day=1) - timedelta(1), '%B')
 

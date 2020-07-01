@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, send_file
+from flask import Flask, send_file
+from .expenses import expenses
 from .logger import log
 from os import path
 
@@ -15,11 +16,11 @@ def get_log():
 
 @app.route('/')
 def test():
-    log.info('Request received')
+    log.info('Test Request Received')
     return 'Success!'
 
 
 @app.route('/expenses')
 def test():
-    log.info('Request received')
-    return 'Success!'
+    log.info('Expenses Request Received')
+    return expenses()
