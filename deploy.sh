@@ -3,7 +3,7 @@ docker build -t deagle/agents:stable .
 
 docker run --init \
     --name huginn_agents \
-    --network="huginn-net"
+    --network=huginn-net \
     --restart always \
     -p 80:5000 \
     deagle/agents:stable
