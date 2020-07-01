@@ -15,7 +15,7 @@ def get_log():
 
 
 @app.route('/')
-def test():
+def root():
     log.info('Test Request Received')
     return 'Success!'
 
