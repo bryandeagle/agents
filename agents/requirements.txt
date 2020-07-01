@@ -2,4 +2,4 @@ flask
 requests
 pytest
 jinja2
-plaid
+plaid-python
