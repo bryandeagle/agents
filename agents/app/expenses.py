@@ -19,7 +19,7 @@ LIST = [{'regex': '^City of Austin T PAYMENT', 'description': 'Electric'},
 def get_transactions(client_id, public_key, secret, access_token):
     """ Gets today's transactions given the credentials and access_token """
     end_date = datetime.strftime(datetime.today() - timedelta(1), '%Y-%m-%d')
-    start_date = datetime.strftime(datetime.today() - timedelta(11), '%Y-%m-%d')
+    start_date = datetime.strftime(datetime.today() - timedelta(1), '%Y-%m-%d')
 
     client = Client(client_id=client_id,
                     secret=secret,
@@ -69,4 +69,4 @@ def expenses():
 
 
 if __name__ == '__main__':
-    print(json.dumps(expenses()))
+    print(json.dumps(expenses()).strip('\"'))

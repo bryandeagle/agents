@@ -2,7 +2,7 @@ from flask import Flask, send_file, jsonify
 from .expenses import expenses
 from .logger import log
 from os import path
-
+import json
 
 # Start application
 app = Flask(__name__)
