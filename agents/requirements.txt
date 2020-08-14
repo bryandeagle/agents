@@ -1,5 +1,4 @@
 flask
 requests
 pytest
-jinja2
 plaid-python
