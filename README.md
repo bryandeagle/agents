@@ -1,4 +1,4 @@
-# Agents
+# Huginn Agents
 I'm using Flask to host some simple REST APIs for custom Huginn agents. Learn more about Huginn [here](https://github.com/huginn/huginn).
 
 ## Installing
