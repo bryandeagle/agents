@@ -18,8 +18,12 @@ LIST = [{'regex': '^City of Austin T PAYMENT', 'description': 'Electric'},
 
 def get_transactions(client_id, public_key, secret, access_token):
     """ Gets today's transactions given the credentials and access_token """
-    end_date = datetime.strftime(datetime.today() - timedelta(1), '%Y-%m-%d')
-    start_date = datetime.strftime(datetime.today() - timedelta(1), '%Y-%m-%d')
+
+    last_last_month = datetime.today().replace(day=1) - timedelta(1)
+    first_last_month = last_last_month.replace(day=1)
+
+    start_date = datetime.strftime(first_last_month, '%Y-%m-%d')
+    end_date = datetime.strftime(last_last_month, '%Y-%m-%d')
 
     client = Client(client_id=client_id,
                     secret=secret,
