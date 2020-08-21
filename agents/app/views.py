@@ -26,3 +26,4 @@ def expenses_route():
         return jsonify(expenses())
     except Exception as e:
         log.error(e)
+        return jsonify(e)
