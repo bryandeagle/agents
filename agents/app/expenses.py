@@ -46,7 +46,6 @@ def get_transactions(client_id, public_key, secret, access_token):
 def expenses():
     """ Get the known splittable expenses """
     log.info('Getting Transactions')
-    raise Exception('IDK WHATS HAPPENING')
     transactions = get_transactions(PLAID_CLIENT_ID,
                                     PLAID_PUBLIC_KEY,
                                     PLAID_SECRET,
