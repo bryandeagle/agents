@@ -2,7 +2,6 @@ from flask import Flask, send_file, jsonify
 from .expenses import expenses
 from .logger import log
 from os import path
-import json
 
 # Start application
 app = Flask(__name__)
@@ -26,4 +25,4 @@ def expenses_route():
         return jsonify(expenses())
     except Exception as e:
         log.error(e)
-        return jsonify(e)
+        return 'Exception: {}'.format(e)
