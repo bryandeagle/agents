@@ -5,7 +5,6 @@ import os
 import re
 
 PLAID_CLIENT_ID = '5dcd8e7d0f92430011ae11cf'
-PLAID_PUBLIC_KEY = '6cd2c536928d3af1754097031ed25e'
 PLAID_SECRET = os.getenv('PLAID_SECRET')
 ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -16,7 +15,7 @@ LIST = [{'regex': '^City of Austin T PAYMENT', 'description': 'Electric'},
         {'regex': '^SPECTRUM', 'description': 'Internet'}]
 
 
-def get_transactions(client_id, public_key, secret, access_token):
+def get_transactions(client_id, secret, access_token):
     """ Gets today's transactions given the credentials and access_token """
 
     last_last_month = datetime.today().replace(day=1) - timedelta(1)
@@ -27,7 +26,6 @@ def get_transactions(client_id, public_key, secret, access_token):
 
     client = Client(client_id=client_id,
                     secret=secret,
-                    public_key=public_key,
                     environment='development',
                     suppress_warnings=True)
     response = client.Transactions.get(access_token,
@@ -47,7 +45,6 @@ def expenses():
     """ Get the known splittable expenses """
     log.info('Getting Transactions')
     transactions = get_transactions(PLAID_CLIENT_ID,
-                                    PLAID_PUBLIC_KEY,
                                     PLAID_SECRET,
                                     ACCESS_TOKEN)
     results = {'found': False, 'transactions': [], 'total': 0, 'owed': 0}
