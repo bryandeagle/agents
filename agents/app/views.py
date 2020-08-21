@@ -16,11 +16,13 @@ def log_route():
 
 @app.route('/')
 def root_route():
-    log.info('Test Request Received')
     return 'Success!'
 
 
 @app.route('/expenses')
 def expenses_route():
     log.info('Expenses Request Received')
-    return jsonify(expenses())
+    try:
+        return jsonify(expenses())
+    except Exception as e:
+        log.error(e)

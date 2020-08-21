@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
-import json
 from plaid import Client
+from .logger import log
+import json
 import os
 import re
 
@@ -45,7 +46,11 @@ def get_transactions(client_id, public_key, secret, access_token):
 
 def expenses():
     """ Get the known splittable expenses """
-    transactions = get_transactions(PLAID_CLIENT_ID, PLAID_PUBLIC_KEY, PLAID_SECRET, ACCESS_TOKEN)
+    log.info('Getting Transactions')
+    transactions = get_transactions(PLAID_CLIENT_ID,
+                                    PLAID_PUBLIC_KEY,
+                                    PLAID_SECRET,
+                                    ACCESS_TOKEN)
     results = {'found': False, 'transactions': [], 'total': 0, 'owed': 0}
 
     # Create separate names and descriptions lists for easy indexing
@@ -70,7 +75,3 @@ def expenses():
     results['total'] = '{:,.2f}'.format(results['total'])
     results['owed'] = '{:,.2f}'.format(results['owed'])
     return results
-
-
-if __name__ == '__main__':
-    print(json.dumps(expenses()).strip('\"'))
